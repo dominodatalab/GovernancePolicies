@@ -1,0 +1,285 @@
+classification:
+  rule: "implementation-tier"
+
+approvers:
+  - ahmet_gyger
+
+stages:
+  - name: Governance_Functions_and_Categories
+    evidenceSet:
+      - id: Local.gov-taxonomy
+        name: NIST Core Function and Category Mapping
+        description: Map the system to NIST AI RMF Functions, Categories, and Subcategories
+        definition:
+          - artifactType: input
+            details:
+              type: select
+              label: NIST Core Function
+              options:
+                - label: Govern
+                  value: Govern
+                - label: Map
+                  value: Map
+                - label: Measure
+                  value: Measure
+                - label: Manage
+                  value: Manage
+                - label: Respond
+                  value: Respond
+          - artifactType: input
+            details:
+              type: multiselect
+              label: NIST Category and Subcategory
+              options:
+                - label: GOVERN - Assign Roles, Accountabilities, and Decision Rights
+                  value: GOV-1
+                - label: GOVERN - Establish Governance Structure
+                  value: GOV-2
+                - label: MAP - Define Context, Objectives, and Constraints
+                  value: MAP-1
+                - label: MAP - Identify Data Sources and Bias Considerations
+                  value: MAP-2
+                - label: MEASURE - Develop Measurement Metrics and Tests
+                  value: MEA-1
+                - label: MEASURE - Evaluate Performance and Trustworthiness
+                  value: MEA-2
+                - label: MANAGE - Respond to Incidents and Risks
+                  value: MAN-1
+                - label: MANAGE - Update and Adapt AI Systems
+                  value: MAN-2
+                - label: RESPOND - Plan for Recovery and Communication
+                  value: RESP-1
+                - label: RESPOND - Document Lessons Learned
+                  value: RESP-2
+
+  - name: Profile_and_Tier_Selection
+    evidenceSet:
+      - id: Local.profile-tier
+        name: Implementation Tier and Profile Selection
+        description: Choose the system’s NIST AI RMF Implementation Tier and Profile(s)
+        definition:
+          - artifactType: input
+            aliasForClassification: implementation-tier
+            details:
+              type: radio
+              label: Implementation Tier
+              options:
+                - Baseline
+                - Evolving
+                - Advanced
+                - Innovative
+          - artifactType: input
+            details:
+              type: multiselect
+              label: NIST AI RMF Profile(s)
+              options:
+                - label: Foundation
+                  value: Profile-Foundation
+                - label: Advanced Use Case
+                  value: Profile-Advanced
+                - label: Custom
+                  value: Profile-Custom
+
+  - name: Change_Management_and_Roles
+    evidenceSet:
+      - id: Local.roles-responsibilities
+        name: Roles and Responsibilities
+        description: Confirm assignment of governance roles per NIST Appendix B
+        definition:
+          - artifactType: input
+            details:
+              type: multiselect
+              label: Assigned Governance Roles
+              options:
+                - label: System Owner
+                  value: system-owner
+                - label: Data Steward
+                  value: data-steward
+                - label: Model Validator
+                  value: model-validator
+                - label: Incident Response Lead
+                  value: incident-lead
+                - label: Privacy Officer
+                  value: privacy-officer
+
+  - name: Plan_and_Design
+    evidenceSet:
+      - id: Local.plan-design
+        name: Plan and Design Application Context
+        description: Articulate system concept, objectives, assumptions, context, and requirements
+        definition:
+          - artifactType: input
+            details:
+              type: radio
+              label: Document concept, objectives, constraints, and stakeholder roles?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Capture legal, ethical, and privacy requirements?
+              options:
+                - Yes
+                - No
+
+  - name: Collect_and_Process_Data
+    evidenceSet:
+      - id: Local.data-collection
+        name: Collect and Process Data
+        description: Gather, validate, and document input data, metadata, and bias assessments
+        definition:
+          - artifactType: input
+            details:
+              type: radio
+              label: Identify and document all data sources and compliance?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Clean, normalize, and validate data quality?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Complete bias and representativeness assessment?
+              options:
+                - Yes
+                - No
+
+  - name: Build_and_Use_Model
+    evidenceSet:
+      - id: Local.model-development
+        name: Build and Use Model
+        description: Select algorithms, train models, and document configurations
+        definition:
+          - artifactType: input
+            details:
+              type: radio
+              label: Select or design algorithm architecture?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Document training splits, hyperparameters, and procedures?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Record model versioning and environment details?
+              options:
+                - Yes
+                - No
+
+  - name: Verify_and_Validate_Model
+    evidenceSet:
+      - id: Local.model-testing
+        name: Verify and Validate Model
+        description: Perform performance, bias, fairness, and explainability testing
+        definition:
+          - artifactType: input
+            details:
+              type: radio
+              label: Execute performance tests (accuracy, precision, recall)?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Run bias, fairness, and adversarial checks?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Perform explainability or sensitivity analyses?
+              options:
+                - Yes
+                - No
+
+  - name: Deploy_and_Use
+    evidenceSet:
+      - id: Local.deployment-pilot
+        name: Deploy and Use (Task and Output)
+        description: Pilot integration, user acceptance, and compliance testing
+        definition:
+          - artifactType: input
+            details:
+              type: radio
+              label: Run integration and UAT with stakeholders?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Confirm compliance with operational policies?
+              options:
+                - Yes
+                - No
+
+  - name: Operate_and_Monitor
+    evidenceSet:
+      - id: Local.operation-monitor
+        name: Operate and Monitor Application Context
+        description: Monitor performance, track incidents, and recalibrate models
+        definition:
+          - artifactType: input
+            details:
+              type: radio
+              label: Enable real-time monitoring and alerting?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Review incident logs and root cause analyses?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Process for model recalibration or retraining?
+              options:
+                - Yes
+                - No
+
+  - name: Use_and_Impact
+    evidenceSet:
+      - id: Local.people-planet
+        name: People and Planet Impact
+        description: Assess environmental, societal, equity, and human-rights impacts
+        definition:
+          - artifactType: input
+            details:
+              type: radio
+              label: Conduct environmental or sustainability assessments?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Gather stakeholder feedback from impacted communities?
+              options:
+                - Yes
+                - No
+          - artifactType: input
+            details:
+              type: radio
+              label: Provide a formal impact assessment report?
+              options:
+                - Yes
+                - No
